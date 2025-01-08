@@ -1,0 +1,35 @@
+{
+  "name": "调试模式 - C++", // 调试任务的名称，改一个你想要的
+  "type": "cppdbg",
+  "request": "launch",
+  "program": "${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
+  //   "program": "${fileDirname}\\build\\main.exe", // 入口程序的位置，和task任务生成的程序位置相同
+  "args": [],
+  "stopAtEntry": false,
+  "cwd": "${fileDirname}",
+  "environment": [],
+  "externalConsole": false, // 控制是在vscode内置终端里输出还是在外部终端输出
+  "console": "integratedTerminal",
+  "MIMode": "gdb",
+  "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", // gdb调试器的位置，和gcc、g++在一个目录下
+  "setupCommands": [
+    {
+      "description": "Enable pretty-printing for gdb",
+      "text": "-enable-pretty-printing",
+      "ignoreFailures": true
+    },
+    {
+      "description": "Set Disassembly Flavor to Intel",
+      "text": "-gdb-set disassembly-flavor intel",
+      "ignoreFailures": true
+    }
+  ],
+  "preLaunchTask": "C/C++: build", // 启动前调用编译任务
+  "logging": {
+    "moduleLoad": false,
+    "trace": false,
+    "engineLogging": false,
+    "programOutput": true, // 确保程序输出被记录
+    "exceptions": false
+  }
+}
