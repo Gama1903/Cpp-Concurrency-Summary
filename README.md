@@ -1,5 +1,3 @@
-# Cpp Concurrent Programming
+## Index
 
-## Introduction
-
-Practice of concurrent programming in C++.
+## Reference
