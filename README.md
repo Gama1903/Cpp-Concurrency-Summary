@@ -1,8 +1,8 @@
 # Cpp Concurrency Summary
 
 ## 索引
-1. [Concurrency](doc/concurrency.md)
-2. [Managing threads](doc/managing_threads.md)
+1. 并发与多线程：[Concurrency](doc/concurrency.md)
+2. 线程管理：[Managing threads](doc/managing_threads.md)
 
 ## 相关
 1. C++ Concurrency in Action 2nd英文原版：https://livebook.manning.com/book/c-plus-plus-concurrency-in-action-second-edition
