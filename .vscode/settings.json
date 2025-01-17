@@ -46,6 +46,9 @@
     "thread": "cpp",
     "condition_variable": "cpp",
     "future": "cpp",
-    "mutex": "cpp"
+    "mutex": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "numeric": "cpp"
   }
 }
