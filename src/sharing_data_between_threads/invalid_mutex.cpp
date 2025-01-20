@@ -1,6 +1,7 @@
 #include <iostream>
 #include <mutex>
 #include <tuple>
+#include <thread>
 
 // 某类数据
 class some_data
@@ -58,6 +59,21 @@ void malicious_func(some_data &protected_data)
 int main()
 {
     data_wrapper dw{};
-    dw.process_data(malicious_func); // 在这里传递了一个恶意函数，该函数会破坏数据封装
-    unprotected_data->set(1, 2.2f);  // 在无保护的情况下修改数据
+    std::thread t1{
+        [&]
+        {
+            auto [x, y] = dw.get_data();
+            std::cout << "x: " << x << ", y: " << y << std::endl;
+        }};
+    std::thread t2{
+        [&]
+        {
+            dw.process_data(malicious_func); // 在这里传递了一个恶意函数，该函数会破坏数据封装
+            unprotected_data->set(1, 2.2f);  // 在无保护的情况下修改数据
+            auto [x, y] = unprotected_data->get();
+            std::cout << "x: " << x << ", y: " << y << std::endl;
+        }};
+    t1.join();
+    t2.join();
+    return 0;
 }
